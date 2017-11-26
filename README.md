@@ -1,9 +1,11 @@
-A centos vagrant setup with xfce gui.
+A centos vagrant setup with xfce gui. The box's username and password are both `vagrant`.
 
-### basics
-The box's username and password are both `vagrant`.
+### Requirements
+* VirtualBox
+* Vagrant
+* Cmder to use as terminal
 
-### [cmder](https://github.com/cmderdev/cmder) mintty issue
+### Cmder mintty issue
 When using mintty, `vagrant ssh` might fail because vagrant's ssh maynot recognize stdin as a terminal.
 ```
 # vagrant ssh -- -v
@@ -21,6 +23,7 @@ Copy cmder-mintty-profile.sh into $CMDER_ROOT/config/profile.d/ so vagrant uses 
 
 ### VirtualBox guest additions
 Needed for syncing folders, full screen gui and more.
+
 Steps in host:
 * Shutdown the vm.
 * Start VirtualBox.
