@@ -1,6 +1,6 @@
 A centos vagrant setup with xfce gui.
 
-#### (cmder)[https://github.com/cmderdev/cmder] mintty issue
+#### [cmder](https://github.com/cmderdev/cmder) mintty issue
 When using mintty, `vagrant ssh` might fail because vagrant's ssh maynot recognize stdin as a terminal.
 ```
 # vagrant ssh -- -v
