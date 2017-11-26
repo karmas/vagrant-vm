@@ -4,6 +4,7 @@ A centos vagrant setup with xfce gui. The box's username and password are both `
 * VirtualBox
 * Vagrant
 * Cmder to use as terminal
+* Xming for X11
 
 ### Cmder mintty issue
 When using mintty, `vagrant ssh` might fail because vagrant's ssh maynot recognize stdin as a terminal.
@@ -19,7 +20,10 @@ However mintty's ssh might work fine.
 vagrant@127.0.0.1's password:
 [vagrant@cent ~]$
 ```
-Copy cmder-mintty-profile.sh into $CMDER_ROOT/config/profile.d/ so vagrant uses cmder's ssh.
+Copy .bash\_profile into home. It sets env var to make vagrant use system binaries.
+```
+λ cp vagrant-centos/.bash_profile $HOME
+```
 
 ### VirtualBox guest additions
 Needed for syncing folders, full screen gui and more.
@@ -52,4 +56,17 @@ VirtualBox Guest Additions: modprobe vboxsf failed
 ```
 sudo umount /mnt
 ```
-* reload the vm and check file sync works
+* reload the vm and check file sync works; by default vagrant syncs host directory with guest /vagrant/
+
+### X11 forwarding
+* Vagrantfile already is setup to forward x11.
+* It is provisioned to install X11 and Fonts groups required for most graphical programs.
+* However the local machine should have xming started and the shell should have DISPLAY variable exported.
+* Else running graphical programs on vm can give following problem.
+```
+Can't connect to X11 window server using 'localhost:10.0' as the value of the DISPLAY variable.
+```
+* Before ssh into vm export following. This has been written to the .bash\_profile file.
+```
+export DISPLAY=localhost:0
+```
