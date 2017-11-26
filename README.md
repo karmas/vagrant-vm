@@ -1,6 +1,9 @@
 A centos vagrant setup with xfce gui.
 
-#### [cmder](https://github.com/cmderdev/cmder) mintty issue
+### basics
+The box's username and password are both `vagrant`.
+
+### [cmder](https://github.com/cmderdev/cmder) mintty issue
 When using mintty, `vagrant ssh` might fail because vagrant's ssh maynot recognize stdin as a terminal.
 ```
 # vagrant ssh -- -v
@@ -15,3 +18,35 @@ vagrant@127.0.0.1's password:
 [vagrant@cent ~]$
 ```
 Copy cmder-mintty-profile.sh into $CMDER_ROOT/config/profile.d/ so vagrant uses cmder's ssh.
+
+### VirtualBox guest additions
+Needed for syncing folders, full screen gui and more.
+Steps in host:
+* Shutdown the vm.
+* Start VirtualBox.
+* Add a cdrom drive.
+* Load the guest additions cd from VirtualBox installation folder (it can be loaded later via gui).
+Steps in guest:
+* mount the drive
+```
+[vagrant@cent ~]$ sudo mount /dev/cdrom /mnt
+mount: /dev/sr0 is write-protected, mounting read-only
+```
+* kernel headers are required which have been provisioned in the vagrant file; for reference below
+```
+yum -y install kernel-devel # needed for virtualbox guest additions
+yum -y groupinstall 'development tools'
+```
+* run the installer
+```
+[vagrant@cent mnt]$ sudo sh ./VBoxLinuxAdditions.run
+```
+* this message is fine
+```
+VirtualBox Guest Additions: modprobe vboxsf failed
+```
+* unmount the drive; will be unmounted when vm is shutdown
+```
+sudo umount /mnt
+```
+* reload the vm and check file sync works
