@@ -16,4 +16,5 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.provision "shell", path: 'install-pkgs.sh'
+  #config.vm.provision "shell", path: 'install-xfce.sh'
 end
