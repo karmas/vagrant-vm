@@ -6,6 +6,14 @@ A centos vagrant setup with xfce gui. The box's username and password are both `
 * Cmder to use as terminal
 * Xming for X11
 
+### Powershell issue
+The following error means you need a newer version of powershell.
+```
+vagrant up --debug
+ INFO subprocess: Starting process: ["C:\\windows\\System32\\WindowsPowerShell\\v1.0/powershell.EXE", "-NoLogo", "-NoProfile", "-NonInteractive", "-ExecutionPolicy", "Bypass", "-Command", "$PSVersionTable.PSVersion.Major"]
+ INFO subprocess: Command not in installer, restoring original environment...
+```
+
 ### Cmder mintty issue
 When using mintty, `vagrant ssh` might fail because vagrant's ssh maynot recognize stdin as a terminal.
 ```
