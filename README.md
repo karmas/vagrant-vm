@@ -20,9 +20,9 @@ However mintty's ssh might work fine.
 vagrant@127.0.0.1's password:
 [vagrant@cent ~]$
 ```
-Copy .bash\_profile into home. It sets env var to make vagrant use system binaries.
+Copy bash\_profile into home. It sets env var to make vagrant use system binaries.
 ```
-λ cp vagrant-centos/.bash_profile $HOME
+λ cp vagrant-centos/bash_profile $HOME/.bash_profile
 ```
 
 ### VirtualBox guest additions
@@ -66,7 +66,7 @@ sudo umount /mnt
 ```
 Can't connect to X11 window server using 'localhost:10.0' as the value of the DISPLAY variable.
 ```
-* Before ssh into vm export following. This has been written to the .bash\_profile file.
+* Before ssh into vm export following. This has been written to the bash\_profile file.
 ```
 export DISPLAY=localhost:0
 ```
