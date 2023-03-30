@@ -1,3 +1,9 @@
+Repo for Vagrant files.
+
+
+Centos with gui
+---------------
+
 A centos vagrant setup with xfce gui. The box's username and password are both `vagrant`.
 
 ### Requirements

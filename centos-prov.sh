@@ -3,5 +3,4 @@ yum -y groupinstall 'development tools'
 yum -y install epel-release # needed for many packages e.g. tmux xfce
 yum -y install tmux vim man-pages wget htop
 yum -y install sysstat # pidstat and more
-yum -y install java-1.8.0-openjdk-devel
 yum -y groupinstall X11
